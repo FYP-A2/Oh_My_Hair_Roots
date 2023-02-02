@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class Test : MonoBehaviour
@@ -23,6 +24,7 @@ public class Test : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
+        //if(other.name == "RainParticle")
         hp--;
     }
 }
