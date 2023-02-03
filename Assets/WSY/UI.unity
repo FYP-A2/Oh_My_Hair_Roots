@@ -571,8 +571,7 @@ MonoBehaviour:
   hp: 1
   water_oil_balance: 0
   hairglow: 0
-  SpeedOfOil: 1
-  SpeedOfHp: 1
+  Speed: 1
   OilAdd: 0.01
   hairSkin: 0
   ValueOfHairSkin: 3000
@@ -583,10 +582,12 @@ MonoBehaviour:
   ungrowable: 0
   run: 1
   deadhair: 1
+  health: 0
   nowStatus: 0
   bar_hp: {fileID: 4412584202914790887}
   bar_oil: {fileID: 4412584202929308585}
   Skin: 0
+  EndOp: 0
 --- !u!4 &1797005313
 Transform:
   m_ObjectHideFlags: 0
@@ -3301,8 +3302,7 @@ MonoBehaviour:
   hp: 1
   water_oil_balance: 0
   hairglow: 0
-  SpeedOfOil: 1
-  SpeedOfHp: 1
+  Speed: 1
   OilAdd: 0.01
   hairSkin: 0
   ValueOfHairSkin: 3000
@@ -3313,10 +3313,12 @@ MonoBehaviour:
   ungrowable: 0
   run: 1
   deadhair: 0
+  health: 0
   nowStatus: 0
   bar_hp: {fileID: 4412584202914790887}
   bar_oil: {fileID: 4412584202929308585}
   Skin: 0
+  EndOp: 0
 --- !u!1 &4982661449333442905
 GameObject:
   m_ObjectHideFlags: 0

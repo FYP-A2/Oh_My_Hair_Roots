@@ -8,12 +8,12 @@ using UnityEngine.UI;
 public class Hair : MonoBehaviour
 {
     public float hp, water_oil_balance, hairglow;
-    public float SpeedOfOil, SpeedOfHp, OilAdd, hairSkin, ValueOfHairSkin, glowValue,ValueOfHp, ValueofOil,opTime;
+    public float Speed, OilAdd, hairSkin, ValueOfHairSkin, glowValue,ValueOfHp, ValueofOil,opTime;
     public bool ungrowable = false,run = true, deadhair= false,health = false;
     public int nowStatus=0;
     public Slider bar_hp;
     public Scrollbar bar_oil;
-    public bool Skin = false;
+    public bool Skin = false, EndOp = false;
 
 
     void Start() {
@@ -38,7 +38,7 @@ public class Hair : MonoBehaviour
                 StartCoroutine(HairOutAnimetion());
             }
         }
-        else if (hairSkin <= 0) { RespawnHair(); }
+        else if (hairSkin <= 0 && EndOp&&!deadhair) { RespawnHair(); }
     }
 
     IEnumerator HairOpeningDead() {
@@ -57,6 +57,7 @@ public class Hair : MonoBehaviour
             yield return new WaitForSeconds(opTime);
             RespawnHair();
         }
+        EndOp = true;
         Debug.Log("End animetion_op");
     }
 
@@ -74,7 +75,7 @@ public class Hair : MonoBehaviour
         {
             water_oil_balance += OilAdd;
             updateHp();
-            yield return new WaitForSeconds(SpeedOfOil);
+            yield return new WaitForSeconds(Speed);
             StartCoroutine(AutoOilIncrease());
         }
     }
@@ -148,7 +149,8 @@ public class Hair : MonoBehaviour
 
     public void waterAutoDecrease() {
         if (run)
-            StartCoroutine(AutoOilIncrease());
+        { StartCoroutine(AutoOilIncrease());
+        }
     }
 
     public void AddWater(float n) {
