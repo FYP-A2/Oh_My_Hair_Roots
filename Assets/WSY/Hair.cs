@@ -35,7 +35,10 @@ public class Hair : MonoBehaviour
             if (hp <= 0) ungrowable = true;
             if (ungrowable)
             {
-                StartCoroutine(HairOutAnimetion());
+                Debug.Log("life-1");
+                run = false;
+                ungrowable = false;
+                Debug.Log("Start animetion");// hair out animetion
             }
         }
         else if (hairSkin <= 0 && EndOp&&!deadhair) { RespawnHair(); }
@@ -47,9 +50,11 @@ public class Hair : MonoBehaviour
         ungrowable = false;
         if (deadhair)
         {
-            Debug.Log("Start animetion_op");// hair out animetion
+            Debug.Log("Start animetion_op");// stone animetion
             ////////////////////////////////////
             yield return new WaitForSeconds(opTime);
+            /////////////////////////////   hair out animetion
+
             hp = 0;
         }
         else
@@ -59,14 +64,6 @@ public class Hair : MonoBehaviour
         }
         EndOp = true;
         Debug.Log("End animetion_op");
-    }
-
-    IEnumerator HairOutAnimetion() {
-        run = false;
-        ungrowable = false;
-        Debug.Log("Start animetion");// hair out animetion
-        yield return new WaitForSeconds(opTime); // how the long of that animetion and some cool down
-        Debug.Log("End animetion");
     }
 
     IEnumerator AutoOilIncrease()
@@ -152,7 +149,6 @@ public class Hair : MonoBehaviour
         { StartCoroutine(AutoOilIncrease());
         }
     }
-
     public void AddWater(float n) {
         if (!Skin&&run)
         {
@@ -160,6 +156,16 @@ public class Hair : MonoBehaviour
             hairSkin -= (ValueOfHairSkin * 0.01f);
         }
     }
+    public void RemoveWater(float n)
+    {
+        if (run)
+        {
+            water_oil_balance += n;
+        }
+
+    }
+
+ 
 
     public void CleanHairSkin() {
          hairSkin = 0;
