@@ -13,25 +13,32 @@ public class Rotate : MonoBehaviour
     public bool touched;
     public InputActionProperty mousePosition;
     public InputActionProperty lmb;
-    // Start is called before the first frame update
 
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
 
+    public int min, max;
+    public int i;
+    public GameObject cloud;
+    // Start is called before the first frame update
     void Start()
     {
         touched = false;
         lmb.action.performed += Action_performed;
+        RandomRot();
+        InvokeRepeating("RandomRot", 5f, 15f);      
     }
 
     private void Action_performed(InputAction.CallbackContext obj)
     {
         Ray ray = Camera.main.ScreenPointToRay(mousePosition.action.ReadValue<Vector2>());
         RaycastHit hit;
-        Physics.Raycast(ray,out hit, 1000);      
+        Physics.Raycast(ray,out hit, 1000);
         if (hit.transform.name == "Cloud")
             touched = true;
+        else
+            return;
         //throw new System.NotImplementedException();
     }
 
@@ -45,15 +52,12 @@ public class Rotate : MonoBehaviour
         if(lmb.action.phase == InputActionPhase.Waiting){
             Cursor.SetCursor(null, Vector2.zero, cursorMode);
             touched = false;
+            min = 1;
+            max = 5;
         }
         if (lmb.action.phase == InputActionPhase.Started && touched) 
         {
-            CancelInvoke("RandomRot");
-            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-            //mPosDelta = mousePosition.action.ReadValue<Vector2>() - mPrevPos;       
-            //transform.Rotate(transform.up, -Vector3.Dot(mPosDelta, Camera.main.transform.right) * 0.08f, Space.World);
-            //transform.Rotate(Camera.main.transform.right, Vector3.Dot(mPosDelta, Camera.main.transform.up) * 0.1f, Space.World);
-            //Debug.Log("work:" + mousePosition.action.ReadValue<Vector2>());
+            Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);            
             mPosDelta = mousePosition.action.ReadValue<Vector2>() - mPrevPos;
             x = mPosDelta.x;
             if(x>rotationSpeed)
@@ -65,20 +69,20 @@ public class Rotate : MonoBehaviour
             Vector3 up = Vector3.Cross(transform.position - Camera.main.transform.position, right);
             transform.rotation = Quaternion.AngleAxis(-x,up)*transform.rotation;
             transform.rotation = Quaternion.AngleAxis(y,right) * transform.rotation;
+            min = 0;
+            max = 0;
+            RandomRot();
         }
         else
         {
-            transform.Rotate(new Vector3(xRot, yRot, zRot) * Time.deltaTime);
-            InvokeRepeating("RandomRot", 0, 15);
+            transform.Rotate(new Vector3(xRot, yRot, zRot) * Time.deltaTime);           
         }
         mPrevPos = mousePosition.action.ReadValue<Vector2>();
-
-
     }
 
     void RandomRot()
     {
-        int i = Random.Range(0, 6);
+        i = Random.Range(min,max);
         switch (i)
         {
             case 0:
@@ -105,24 +109,20 @@ public class Rotate : MonoBehaviour
                 xRot = 0;
                 yRot = rotationSpeed;
                 zRot = 0;
-                break;
+                break;           
             case 5:
                 xRot = rotationSpeed;
-                yRot = 0;
+                yRot = rotationSpeed;
                 zRot = 0;
                 break;
             case 6:
                 xRot = rotationSpeed;
-                yRot = rotationSpeed;
+                yRot = 0;
                 zRot = 0;
                 break;
             default: 
                 break;
         }       
-        //xRot = Random.Range(0, rotationSpeed);
-        //yRot = Random.Range(0, rotationSpeed);
-        //zRot = Random.Range(0, rotationSpeed);
-        //Debug.Log(xRot + " " + yRot + " " + zRot);
     }
     private void OnEnable()
     {
