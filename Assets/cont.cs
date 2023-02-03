@@ -12,7 +12,11 @@ public class cont : MonoBehaviour
     }
 
     public void ChangeScene() {
-        SceneManager.LoadScene("Scene02");
+        SceneManager.LoadScene("test");
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     // Update is called once per frame
