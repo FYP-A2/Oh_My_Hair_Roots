@@ -51,6 +51,10 @@ public class Controll : MonoBehaviour
         {
             Cursor.SetCursor(cloudCursorTexture, hotSpot, cursorMode);
         }
+        if (sunIsHold)
+        {
+            Cursor.SetCursor(sunCursorTexture, hotSpot, cursorMode);
+        }
         mPrevPos = mousePosition.action.ReadValue<Vector2>();
     }
 
