@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class sound : MonoBehaviour
 {
-
-    [SerializeField] Image soundOnIcon;
-    [SerializeField] Image soundOffIcon;
+    public Image nowImage;
+    public Sprite soundOnIcon;
+    public Sprite soundOffIcon;
     private bool muted = false;
     // Start is called before the first frame update
     void Start()
@@ -19,11 +19,13 @@ public class sound : MonoBehaviour
         {
             muted = true;
             AudioListener.pause = true;
+            nowImage.sprite = soundOffIcon;
         }
         else
         {
             muted =false;
             AudioListener.pause =false;
+            nowImage.sprite = soundOnIcon;
         }
     }
     // Update is called once per frame

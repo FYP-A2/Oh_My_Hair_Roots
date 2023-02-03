@@ -14,7 +14,7 @@ public class cont : MonoBehaviour
     public void ChangeScene() {
         SceneManager.LoadScene("test");
     }
-    public void Quit()
+    public void QuitGame()
     {
         Application.Quit();
     }
