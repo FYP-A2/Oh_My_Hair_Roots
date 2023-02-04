@@ -1,14 +1,20 @@
 fileFormatVersion: 2
-guid: 4694bbca98374814da46e0c29fae1fa7
+guid: 63aa5c16352487a46a21fb914d88d304
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
   - first:
-      74: 3463131090351638747
-    second: HairArmature|Action
+      74: 1851905368334093017
+    second: HairArmature|SwingMed
   - first:
-      74: -5006426027378115227
-    second: HairArmature|Swing
+      74: -4374301719882403568
+    second: HairArmature|SwingMild
+  - first:
+      74: -214979503018401815
+    second: HairArmature|SwingMild2
+  - first:
+      74: -6493805559895675042
+    second: HairArmature|SwingWild
   externalObjects: {}
   materials:
     materialImportMode: 2

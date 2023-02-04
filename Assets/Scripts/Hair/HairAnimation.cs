@@ -103,16 +103,16 @@ public class HairAnimation : MonoBehaviour
 
         while (true)
         {
-            int r = Random.Range(0, 24);
+            int r = Random.Range(0, 12);
 
             //animator.SetInteger("SwingType",r);
 
-            if (r <= 20)
+            if (r <= 10)
             {
                 animator.SetInteger("SwingType", 0);
             } else
             {
-                animator.SetInteger("SwingType", r - 20);
+                animator.SetInteger("SwingType", r - 10);
             }
 
 

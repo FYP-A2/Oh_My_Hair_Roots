@@ -1,26 +1,20 @@
 fileFormatVersion: 2
-guid: ab27bc7fc82fe2048ac083df2cf6febe
+guid: aceb291ebac7c884bad4abd9c0746bd2
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
   - first:
-      74: -5762035777162912821
-    second: HairArmature|noAction
+      74: -2922673554545330293
+    second: Inflammation|InflammationAction1
   - first:
-      74: 2665659809197627425
-    second: HairArmature|noAction2
+      74: 1577260285190331826
+    second: Inflammation|InflammationAction2
   - first:
-      74: 1851905368334093017
-    second: HairArmature|SwingMed
+      74: 5922135889247396760
+    second: Inflammation|InflammationAction3
   - first:
-      74: -4374301719882403568
-    second: HairArmature|SwingMild
-  - first:
-      74: -214979503018401815
-    second: HairArmature|SwingMild2
-  - first:
-      74: -6493805559895675042
-    second: HairArmature|SwingWild
+      74: -2131195395114105621
+    second: Inflammation|InflammationStage3
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -112,7 +106,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
