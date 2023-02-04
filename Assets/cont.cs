@@ -18,7 +18,18 @@ public class cont : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void Home()
+    {
+        SceneManager.LoadScene("menu");
+    }
+    public void stopTime()
+    {
+        Time.timeScale = 0f;
+    }
+    public void Timeplay()
+    {
+        Time.timeScale = 1f;
+    }
     // Update is called once per frame
     void Update()
     {
