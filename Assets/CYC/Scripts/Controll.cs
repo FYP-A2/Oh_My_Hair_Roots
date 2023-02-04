@@ -72,8 +72,8 @@ public class Controll : MonoBehaviour
             mPostPos = mousePosition.action.ReadValue<Vector2>() - mPrevPos;
             Vector3 right = Vector3.Cross(Camera.main.transform.up, transform.position - Camera.main.transform.position);
             Vector3 up = Vector3.Cross(transform.position - Camera.main.transform.position, right);
-            transform.rotation = Quaternion.AngleAxis(-mPostPos.x * sensitive, up) * transform.rotation;
-            transform.rotation = Quaternion.AngleAxis(mPostPos.y * sensitive, right) * transform.rotation;
+            transform.rotation = Quaternion.AngleAxis(mPostPos.x * sensitive, up) * transform.rotation;
+            transform.rotation = Quaternion.AngleAxis(-mPostPos.y * sensitive, right) * transform.rotation;
             //transform.Rotate(new Vector3(-mPostPos.y * sensitive, +mPostPos.x * sensitive, 0));
             //transform.Rotate(Vector3.right, mPostPos.y * sensitive, Space.Self);
             //transform.Rotate(Vector3.up, -mPostPos.x * sensitive, Space.Self);
