@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class Controll : MonoBehaviour
 {
     public GameObject cloud, sun;
-    bool sunIsHold, cloudIsHold;
+    bool sunIsHold, cloudIsHold, moonIsHold;
     [SerializeField] InputActionProperty mousePosition;
     [SerializeField] InputActionProperty lmb;
     Vector2 mPrevPos = Vector3.zero;
@@ -23,15 +23,29 @@ public class Controll : MonoBehaviour
     }
     private void Action_performed(InputAction.CallbackContext obj)
     {
+        string s;
         Ray ray = Camera.main.ScreenPointToRay(mousePosition.action.ReadValue<Vector2>());
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 1000);
-        if (hit.transform.name == "Cloud")
-            cloudIsHold = true;
-        else if (hit.transform.name == "Sun")
-            sunIsHold = true;
-        else
-            return;
+
+        if (hit.collider != null)
+        {
+            s = hit.transform.name;
+            switch (s)
+            {
+                case "Cloud":
+                    cloudIsHold = true;
+                    break;
+                case "Sun":
+                    sunIsHold = true;
+                    break;
+                case "Moon":
+                    moonIsHold = true;
+                    break;
+                default:
+                    break;
+            }
+        }
         //throw new System.NotImplementedException();
     }
     // Update is called once per frame
@@ -42,6 +56,7 @@ public class Controll : MonoBehaviour
             Cursor.SetCursor(null, Vector2.zero, cursorMode);
             cloudIsHold = false;
             sunIsHold = false;
+            moonIsHold= false;
         }
         if (lmb.action.phase == InputActionPhase.Started)
         {
@@ -69,6 +84,10 @@ public class Controll : MonoBehaviour
         lmb.action.Disable();
     }
 
+    public bool getLMBWaitingPhase()
+    {
+        return lmb.action.phase == InputActionPhase.Waiting;
+    }
     public Vector2 getmPrevPos()
     {
         return mPrevPos;
@@ -86,5 +105,10 @@ public class Controll : MonoBehaviour
     public bool getCloudIsHold()
     {
         return cloudIsHold;
+    }
+
+    public bool getMoonIsHold()
+    {
+        return moonIsHold;
     }
 }

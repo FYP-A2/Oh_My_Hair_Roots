@@ -24,12 +24,15 @@ public class Sun : MonoBehaviour
             // add layer mask head
             Physics.Raycast(ray, out hit, 1000,layerMask:1<<6);
             // check head
-            if (hit.transform.name == "head")
+            if (hit.collider != null)
             {
-                newPos = (hit.point - hit.transform.position) * 1.5f;
-                sunlight.SetActive(true);
-                sunlight.transform.position = newPos;
-                sunlight.transform.LookAt(hit.point);
+                if (hit.transform.name == "head")
+                {
+                    newPos = (hit.point - hit.transform.position) * 1.5f;
+                    sunlight.SetActive(true);
+                    sunlight.transform.position = newPos;
+                    sunlight.transform.LookAt(hit.point);
+                }
             }
             else
             {

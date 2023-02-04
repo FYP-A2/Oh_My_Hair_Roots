@@ -7,20 +7,22 @@ public class Cloud : MonoBehaviour
     [SerializeField]Controll input;
     [SerializeField]float rotationSpeed;
     [SerializeField]float sensitive;
-    int min, max;
-    float xRot, yRot, zRot, x,y;
+    int min, max, i;
+    float xRot, yRot, zRot, x,y, wait;
+    public float waitTime, startDelay, randomDirectionDelay;
     // Start is called before the first frame update
     void Start()
     {
         min = 0;
         max = 5;
         RandomRot();
-        InvokeRepeating("RandomRot", 15f, 15f);
+        InvokeRepeating("RandomRot", startDelay, randomDirectionDelay);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Move();
         if (input.getCloudIsHold())
         {
             x = input.getmPostPos().x * sensitive;
@@ -33,22 +35,27 @@ public class Cloud : MonoBehaviour
             Vector3 up = Vector3.Cross(transform.position - Camera.main.transform.position, right);
             transform.rotation = Quaternion.AngleAxis(-x, up) * transform.rotation;
             transform.rotation = Quaternion.AngleAxis(y, right) * transform.rotation;
-            min = 0;
-            max = 0;
+            wait = waitTime;
             RandomRot();
         }
         else
         {
             transform.Rotate(new Vector3(xRot, yRot, zRot) * Time.deltaTime);
-            min = 0;
-            max = 5;
         }
-
+        if(wait > 0)
+        {
+            i = 0;
+            wait -= Time.deltaTime;
+        }
     }
 
     void RandomRot()
     {
-        int i = Random.Range(min, max);
+        i = Random.Range(min, max);        
+    }
+
+    void Move()
+    {
         switch (i)
         {
             case 0:

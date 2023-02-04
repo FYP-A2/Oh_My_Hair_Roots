@@ -25,6 +25,6 @@ public class Test : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
         //if(other.name == "RainParticle")
-        hp--;
+        Debug.Log("add Water");
     }
 }
