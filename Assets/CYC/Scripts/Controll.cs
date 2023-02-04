@@ -7,9 +7,13 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class Controll : MonoBehaviour
 {
     public GameObject cloud, sun;
+    public int maxScroll, minScroll;
+    public float sensitive;
     bool sunIsHold, cloudIsHold, moonIsHold;
     [SerializeField] InputActionProperty mousePosition;
     [SerializeField] InputActionProperty lmb;
+    [SerializeField] InputActionProperty rmb;
+    [SerializeField] InputActionProperty mWheel;
     Vector2 mPrevPos = Vector3.zero;
     Vector2 mPostPos = Vector3.zero;
 
@@ -62,6 +66,29 @@ public class Controll : MonoBehaviour
         {
             mPostPos = mousePosition.action.ReadValue<Vector2>() - mPrevPos;
         }
+        if (rmb.action.phase == InputActionPhase.Started)
+        {
+            mPostPos = mousePosition.action.ReadValue<Vector2>() - mPrevPos;
+            Vector3 right = Vector3.Cross(Camera.main.transform.up, transform.position - Camera.main.transform.position);
+            Vector3 up = Vector3.Cross(transform.position - Camera.main.transform.position, right);
+            transform.rotation = Quaternion.AngleAxis(-mPostPos.x*sensitive, up) * transform.rotation;
+            transform.rotation = Quaternion.AngleAxis(mPostPos.y*sensitive, right) * transform.rotation;
+        }
+        if (mWheel.action.phase == InputActionPhase.Performed)
+        {
+            if (Camera.main.transform.position.z > minScroll)
+            {
+                Camera.main.transform.position = new Vector3(0, 0, minScroll);
+            }
+            else if (Camera.main.transform.position.z < maxScroll)
+            {
+                Camera.main.transform.position = new Vector3(0, 0, maxScroll);
+            }
+            else
+            {
+                Camera.main.transform.position += new Vector3(0, 0, mWheel.action.ReadValue<float>() / 120f);
+            }
+        }
         if (cloudIsHold)
         {
             Cursor.SetCursor(cloudCursorTexture, hotSpot, cursorMode);
@@ -69,7 +96,7 @@ public class Controll : MonoBehaviour
         if (sunIsHold)
         {
             Cursor.SetCursor(sunCursorTexture, hotSpot, cursorMode);
-        }
+        }   
         mPrevPos = mousePosition.action.ReadValue<Vector2>();
     }
 
@@ -77,11 +104,15 @@ public class Controll : MonoBehaviour
     {
         mousePosition.action.Enable();
         lmb.action.Enable();
+        rmb.action.Enable();
+        mWheel.action.Enable();
     }
     private void OnDisable()
     {
         mousePosition.action.Disable();
         lmb.action.Disable();
+        rmb.action.Disable();
+        mWheel.action.Disable();
     }
 
     public bool getLMBWaitingPhase()
