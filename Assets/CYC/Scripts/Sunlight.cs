@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sunlight : MonoBehaviour
 {
+    public float removeWaterAmount = 0.05f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,10 @@ public class Sunlight : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "hair")
+        HairAround ha;
+        if(other.TryGetComponent<HairAround>(out ha))
         {
-            Debug.Log("water--");
+            ha.myHair.RemoveWater(removeWaterAmount);
         }
     }
 }
