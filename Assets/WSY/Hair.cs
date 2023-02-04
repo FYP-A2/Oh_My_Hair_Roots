@@ -15,8 +15,13 @@ public class Hair : MonoBehaviour
     public Scrollbar bar_oil;
     public bool Skin = false, EndOp = false;
 
+    public HairFollicle hairFollicle;
+    public HairAnimation hairAnimation;
+
 
     void Start() {
+        bar_hp = FindObjectOfType<checkUI>().hp_bar;
+        bar_oil = FindObjectOfType<checkUI>().oil_bar;
         Status(nowStatus);
         StartCoroutine(HairOpeningDead());
     }
@@ -40,8 +45,17 @@ public class Hair : MonoBehaviour
                 ungrowable = false;
                 Debug.Log("Start animetion");// hair out animetion
             }
+
+            if (hp > 100)
+                hp = 100;
         }
         else if (hairSkin <= 0 && EndOp&&!deadhair) { RespawnHair(); }
+
+
+
+
+        hairFollicle.SetAllPara(water_oil_balance, Skin, hp);
+        hairAnimation.SetGrow(hairglow);
     }
 
     IEnumerator HairOpeningDead() {
@@ -61,6 +75,7 @@ public class Hair : MonoBehaviour
         {
             yield return new WaitForSeconds(opTime);
             RespawnHair();
+            hairglow = 1f;
         }
         EndOp = true;
         Debug.Log("End animetion_op");

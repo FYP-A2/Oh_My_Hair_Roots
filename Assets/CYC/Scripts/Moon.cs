@@ -65,4 +65,16 @@ public class Moon : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other != null)
+        {
+            HairAround ha;
+            if (other.gameObject.TryGetComponent<HairAround>(out ha))
+            {
+                ha.myHair.CleanHairSkin();
+            }
+        }
+    }
 }

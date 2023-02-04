@@ -38,7 +38,7 @@ public class HairFollicle : MonoBehaviour
     [Header("Set Display")]
     [Range(0f, 100f)]
     public float s = 50;
-    public bool c = false;
+    public bool concreting = false;
     [Range(0f, 100f)]
     public float i = 0;
 
@@ -58,8 +58,15 @@ public class HairFollicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetSurroundingDisplay(s/100);
-        SetInfla(i/100);
+        //SetSurroundingDisplay(s/100);
+        //SetInfla(i/100);
+    }
+
+    public void SetAllPara(float surrounding, bool concreting, float inflammation)
+    {
+        SetSurroundingDisplay(surrounding);
+        this.concreting = concreting;
+        SetInfla((100f - inflammation) / 100);
     }
 
 
@@ -99,7 +106,7 @@ public class HairFollicle : MonoBehaviour
 
     public void SetSurroundingDisplay(float n)
     {
-        if (c)
+        if (concreting)
         {
             sMaterial.color = sOilConcretingColor;
         }

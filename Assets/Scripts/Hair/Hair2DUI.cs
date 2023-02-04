@@ -39,6 +39,14 @@ public class Hair2DUI : MonoBehaviour
         
     }
 
+    public void SetAllPara(float inflammation,float hair,float oil,bool concreting)
+    {
+        Setinflammation(inflammation);
+        SetHair(hair);
+        SetOil(oil);
+        SetConcrete(concreting);
+    }
+
     public void Setinflammation(float n)
     {
         inflammationLayer1.SetActive(false);
