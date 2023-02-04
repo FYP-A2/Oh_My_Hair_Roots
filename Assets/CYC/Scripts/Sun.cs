@@ -26,7 +26,7 @@ public class Sun : MonoBehaviour
             // check head
             if (hit.collider != null)
             {
-                if (hit.transform.name == "head")
+                if (hit.transform.tag == "head")
                 {
                     newPos = (hit.point - hit.transform.position) * 1.5f;
                     sunlight.SetActive(true);

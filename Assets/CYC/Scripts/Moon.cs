@@ -8,7 +8,7 @@ public class Moon : MonoBehaviour
     [SerializeField]GameObject moonPos;
     public float holdingScale, hitScale, rotationSpeed;
     Vector3 orginPos, orginScale, scale, newPos;
-    Rigidbody rb;
+    //Rigidbody rb;
     bool moonGetOut;
     //GameObject target;
     //bool hit;
@@ -16,10 +16,10 @@ public class Moon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         //orginPos = transform.position;
         orginScale = transform.localScale;
-        rb.maxAngularVelocity = rotationSpeed;
+        //rb.maxAngularVelocity = rotationSpeed;
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Moon : MonoBehaviour
             // check head
             if (hit.collider != null)
             {               
-                if (hit.transform.name == "head")
+                if (hit.transform.tag == "head")
                 {             
                     //scale = orginScale * hitScale;
                     //transform.localScale = scale;
@@ -49,7 +49,7 @@ public class Moon : MonoBehaviour
                 if (moonGetOut)
                 {
                     transform.position = moonPos.transform.position;
-                    moonGetOut= false;                  
+                    moonGetOut = false;
                 }
                 //transform.position = orginPos;
                 scale = orginScale * holdingScale;
@@ -68,16 +68,16 @@ public class Moon : MonoBehaviour
         }   
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision != null)
-        {
-            if (collision.gameObject.tag == "hairSkin")
-            {
-                Debug.Log("clean oil");
-            }
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision != null)
+    //    {
+    //        if (collision.gameObject.tag == "hairSkin")
+    //        {
+    //            Debug.Log("clean oil");
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
