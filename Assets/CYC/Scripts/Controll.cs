@@ -22,6 +22,7 @@ public class Controll : MonoBehaviour
     CursorMode cursorMode = CursorMode.Auto;
     Vector2 hotSpot = Vector2.zero;
     // Start is called before the first frame update
+    GameObject goHolded;
     void Start()
     {
         lmb.action.performed += Action_performed;
@@ -35,11 +36,13 @@ public class Controll : MonoBehaviour
 
         if (hit.collider != null)
         {
-            s = hit.transform.name;
+            s = hit.transform.tag;
             switch (s)
             {
                 case "Cloud":
                     cloudIsHold = true;
+                    goHolded = hit.transform.gameObject;
+                    Debug.Log(goHolded.name);
                     break;
                 case "Sun":
                     sunIsHold = true;
@@ -137,9 +140,9 @@ public class Controll : MonoBehaviour
         return sunIsHold;
     }
 
-    public bool getCloudIsHold()
+    public GameObject getCloudIsHold()
     {
-        return cloudIsHold;
+        return goHolded;
     }
 
     public bool getMoonIsHold()
