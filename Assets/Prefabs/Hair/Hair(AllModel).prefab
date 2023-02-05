@@ -126,7 +126,7 @@ MonoBehaviour:
   glowValue: 0.01
   ValueOfHp: 100
   ValueofOil: 0.5
-  opTime: 5
+  opTime: 0.1
   ungrowable: 0
   run: 1
   deadhair: 0

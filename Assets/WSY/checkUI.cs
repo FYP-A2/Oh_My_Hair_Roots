@@ -14,6 +14,7 @@ public class checkUI : MonoBehaviour
 
     public GameObject allHairUI;
     public Hair2DUI hair2DUI;
+    public GameObject LifeText;
 
 
     void Start() {

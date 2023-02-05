@@ -23,7 +23,9 @@ public class Hair : MonoBehaviour
         bar_hp = FindObjectOfType<checkUI>().hp_bar;
         bar_oil = FindObjectOfType<checkUI>().oil_bar;
         Status(nowStatus);
-        StartCoroutine(HairOpeningDead());
+
+        run = false;
+        ungrowable = false;
 
         water_oil_balance = 0.5f;
         hp = 100;
@@ -44,6 +46,9 @@ public class Hair : MonoBehaviour
             if (ungrowable)
             {
                 Debug.Log("life-1");
+                GameManager1.LifeDecrease(1);
+
+
                 //run = false;
                 hp = 100;
                 ungrowable = false;
@@ -67,10 +72,14 @@ public class Hair : MonoBehaviour
         hairAnimation.SetGrow(hairglow);
     }
 
+    public void HairStart()
+    {
+        StartCoroutine(HairOpeningDead());
+    }
+
     IEnumerator HairOpeningDead() {
 
-        run = false;
-        ungrowable = false;
+
         if (deadhair)
         {
             Debug.Log("Start animetion_op");// stone animetion
