@@ -65,6 +65,8 @@ public class Controll : MonoBehaviour
             cloudIsHold = false;
             sunIsHold = false;
             moonIsHold= false;
+
+            goHolded = null;
         }
         if (lmb.action.phase == InputActionPhase.Started)
         {

@@ -95,6 +95,11 @@ public class GameManager1 : MonoBehaviour
         Debug.Log("start game");
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     IEnumerator StartingGame()
     {
         HideAllUI();

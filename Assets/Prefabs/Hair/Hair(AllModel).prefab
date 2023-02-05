@@ -123,7 +123,7 @@ MonoBehaviour:
   OilAdd: 0.003
   hairSkin: 0
   ValueOfHairSkin: 30
-  glowValue: 0.01
+  glowValue: 0.05
   ValueOfHp: 100
   ValueofOil: 0.5
   opTime: 0.1
