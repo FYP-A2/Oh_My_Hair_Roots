@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   surroundingGO: {fileID: 8386699164208811831}
-  sHealthyColor: {r: 0.8784314, g: 0.8, b: 0.54901963, a: 1}
+  sHealthyColor: {r: 0.92156863, g: 0.81960785, b: 0.7607843, a: 1}
   sWaterExcessColor: {r: 0.41585082, g: 0.9454903, b: 0.990566, a: 1}
   sOilExcessColor: {r: 1, g: 0.94099194, b: 0.41037738, a: 1}
   sOilConcretingColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}

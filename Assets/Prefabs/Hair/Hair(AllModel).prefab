@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hair: {fileID: 3475080034692980421}
-  addWaterAmount: 0.1
+  addWaterAmount: 0.15
 --- !u!64 &3245418812646523860
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hair: {fileID: 3475080034692980421}
-  addWaterAmount: 0.1
+  addWaterAmount: 0.15
 --- !u!1 &7852018363452577079
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,10 +120,10 @@ MonoBehaviour:
   water_oil_balance: 0.5
   hairglow: 1
   Speed: 1
-  OilAdd: 0.003
+  OilAdd: 0.01
   hairSkin: 0
   ValueOfHairSkin: 30
-  glowValue: 0.05
+  glowValue: 0.03
   ValueOfHp: 100
   ValueofOil: 0.5
   opTime: 0.1
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hair: {fileID: 3475080034692980421}
-  addWaterAmount: 0.1
+  addWaterAmount: 0.15
 --- !u!1001 &5103135740167032471
 PrefabInstance:
   m_ObjectHideFlags: 0
