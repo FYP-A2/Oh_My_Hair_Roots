@@ -23,26 +23,33 @@ public class Cloud : MonoBehaviour
     void Update()
     {
         Move();
-        if (input.getCloudIsHold())
+        if (input.getCloudIsHold() != null)
         {
-            x = input.getmPostPos().x * sensitive;
-            //if(x>rotationSpeed)
-            //    x = rotationSpeed;
-            y = input.getmPostPos().y * sensitive;
-            //if(y>rotationSpeed)
-            //    y = rotationSpeed;
-            Vector3 right = Vector3.Cross(Camera.main.transform.up, transform.position - Camera.main.transform.position);
-            Vector3 up = Vector3.Cross(transform.position - Camera.main.transform.position, right);
-            transform.rotation = Quaternion.AngleAxis(-x, up) * transform.rotation;
-            transform.rotation = Quaternion.AngleAxis(y, right) * transform.rotation;
-            wait = waitTime;
-            RandomRot();
+            if (input.getCloudIsHold().transform.parent.name == gameObject.name)
+            {
+                x = input.getmPostPos().x * sensitive;
+                if(x>rotationSpeed)
+                    x = rotationSpeed;
+                y = input.getmPostPos().y * sensitive;
+                if(y>rotationSpeed)
+                    y = rotationSpeed;
+                Vector3 right = Vector3.Cross(Camera.main.transform.up, transform.position - Camera.main.transform.position);
+                Vector3 up = Vector3.Cross(transform.position - Camera.main.transform.position, right);
+                transform.rotation = Quaternion.AngleAxis(-x, up) * transform.rotation;
+                transform.rotation = Quaternion.AngleAxis(y, right) * transform.rotation;
+                wait = waitTime;
+                RandomRot();
+            }
+            else
+            {
+                transform.Rotate(new Vector3(xRot, yRot, zRot) * Time.deltaTime);
+            }
         }
         else
         {
             transform.Rotate(new Vector3(xRot, yRot, zRot) * Time.deltaTime);
         }
-        if(wait > 0)
+        if (wait > 0)
         {
             i = 0;
             wait -= Time.deltaTime;

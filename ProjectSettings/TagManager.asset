@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - head
+  - Sun
+  - Cloud
+  - Moon
   layers:
   - Default
   - TransparentFX
