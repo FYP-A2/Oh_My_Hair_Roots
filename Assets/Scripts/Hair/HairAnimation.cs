@@ -27,7 +27,7 @@ public class HairAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetGrow(growInput);
+        //SetGrow(growInput);
     }
 
     public void SetGrow(float n)
@@ -45,14 +45,17 @@ public class HairAnimation : MonoBehaviour
 
     public void DropHair()
     {
-        
         GameObject d = Instantiate(dropHair);
         d.transform.position = transform.position;
         d.transform.rotation = transform.rotation;
         d.transform.localScale = transform.lossyScale;
         d.GetComponent<HairAnimation>().InSpace(grow, transform.up, transform.forward, transform.up);
 
+        Debug.Log("Animation Play " + grow);
+
         SetGrow(0);
+
+
     }
 
     public void InSpace(float grow,Vector3 up,Vector3 forward,Vector3 left)

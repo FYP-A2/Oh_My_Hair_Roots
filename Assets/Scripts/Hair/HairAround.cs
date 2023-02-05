@@ -20,6 +20,10 @@ public class HairAround : MonoBehaviour
         if (myHair.deadhair)
             if (CheckOneHealthHairAround())
                 myHair.deadhair = false;
+
+        //if (!myHair.deadhair && !myHair.run)
+        //    if (CheckOneHealthHairAround())
+        //        myHair.run = true;
     }
 
     IEnumerator SetRecorded()

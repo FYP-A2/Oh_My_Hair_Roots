@@ -130,14 +130,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surroundingGO: {fileID: 8386699164208811831}
   sHealthyColor: {r: 0.8784314, g: 0.8, b: 0.54901963, a: 1}
-  sWaterExcessColor: {r: 0, g: 0.716239, b: 1, a: 0.627451}
-  sOilExcessColor: {r: 0.93939424, g: 1, b: 0, a: 0.627451}
-  sOilConcretingColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0.2509804}
+  sWaterExcessColor: {r: 0.41585082, g: 0.9454903, b: 0.990566, a: 1}
+  sOilExcessColor: {r: 1, g: 0.94099194, b: 0.41037738, a: 1}
+  sOilConcretingColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   inflammationGO: {fileID: 2200678884729957306}
   i0color: {r: 1, g: 0.8098697, b: 0.48627448, a: 1}
   i100color: {r: 0.9607843, g: 0.5926305, b: 0.4509804, a: 1}
   s: 50
-  c: 0
+  concreting: 0
   i: 0
 --- !u!95 &3249736284970763732
 Animator:

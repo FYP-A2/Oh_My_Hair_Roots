@@ -24,6 +24,9 @@ public class Hair : MonoBehaviour
         bar_oil = FindObjectOfType<checkUI>().oil_bar;
         Status(nowStatus);
         StartCoroutine(HairOpeningDead());
+
+        water_oil_balance = 0.5f;
+        hp = 100;
     }
 
     void Update()
@@ -41,13 +44,19 @@ public class Hair : MonoBehaviour
             if (ungrowable)
             {
                 Debug.Log("life-1");
-                run = false;
+                //run = false;
+                hp = 100;
                 ungrowable = false;
                 Debug.Log("Start animetion");// hair out animetion
+                hairAnimation.DropHair();
+                hairglow = 0;
             }
 
             if (hp > 100)
                 hp = 100;
+
+            if (hp < -1)
+                hp = -1;
         }
         else if (hairSkin <= 0 && EndOp&&!deadhair) { RespawnHair(); }
 
@@ -68,8 +77,15 @@ public class Hair : MonoBehaviour
             ////////////////////////////////////
             yield return new WaitForSeconds(opTime);
             /////////////////////////////   hair out animetion
+            hairglow = 1;
+            hairAnimation.SetGrow(hairglow);
+            hairAnimation.DropHair();
 
-            hp = 0;
+            hp = 100;
+            hairglow = 0;
+
+            Debug.Log(hairglow);
+            hairAnimation.SetGrow(hairglow);
         }
         else
         {

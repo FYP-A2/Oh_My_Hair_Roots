@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hair: {fileID: 3475080034692980421}
-  addWaterAmount: 0.05
+  addWaterAmount: 0.1
 --- !u!64 &3245418812646523860
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hair: {fileID: 3475080034692980421}
-  addWaterAmount: 0.05
+  addWaterAmount: 0.1
 --- !u!1 &7852018363452577079
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   water_oil_balance: 0.5
-  hairglow: 0
+  hairglow: 1
   Speed: 1
-  OilAdd: 0.01
+  OilAdd: 0.003
   hairSkin: 0
   ValueOfHairSkin: 30
   glowValue: 0.01
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hair: {fileID: 3475080034692980421}
-  addWaterAmount: 0.05
+  addWaterAmount: 0.1
 --- !u!1001 &5103135740167032471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,15 +195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932057980793066692, guid: 38eed875652a7e74c8555890b64bddf3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.1184106
+      value: 5.3492064
       objectReference: {fileID: 0}
     - target: {fileID: 8932057980793066692, guid: 38eed875652a7e74c8555890b64bddf3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.1184106
+      value: 5.3492064
       objectReference: {fileID: 0}
     - target: {fileID: 8932057980793066692, guid: 38eed875652a7e74c8555890b64bddf3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.1184106
+      value: 5.3492064
       objectReference: {fileID: 0}
     - target: {fileID: 8932057980793066692, guid: 38eed875652a7e74c8555890b64bddf3, type: 3}
       propertyPath: m_LocalPosition.x

@@ -474,12 +474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dd92063addd4e478cda1f462d4f9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grow: 0
+  grow: 1
   growInput: 0
   animator: {fileID: 3393370040796502830}
   renderer1: {fileID: 5054182090771108947}
   colorGrowTo1: {r: 0.24294847, g: 0.990566, b: 0.21026169, a: 1}
-  dropHair: {fileID: 1831132350384504013}
+  dropHair: {fileID: 6369071954986620246}
 --- !u!54 &4818352504710394061
 Rigidbody:
   m_ObjectHideFlags: 0

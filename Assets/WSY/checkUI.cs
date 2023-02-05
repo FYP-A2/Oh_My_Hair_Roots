@@ -21,7 +21,7 @@ public class checkUI : MonoBehaviour
 
         //slider_hp.SetActive(false);
         //scrollbar_oil.SetActive(false);
-        nowHair = hair[Random.Range(0,hair.Length)];
+        //nowHair = hair[Random.Range(0,hair.Length)];
     }
 
     void Update()
